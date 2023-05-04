@@ -1,9 +1,6 @@
-function Button(props) {
-    const { title, changeCount } = props
-
-
+function Button({ title}) {
     return (
-        <button  onClick={changeCount} className="mx-10 bg-blue-500 rounded-lg text-xl text-white px-4 py-2 shadow-md font-semibold">
+        <button className="w-26 h-10 text-sm text-white px-4 uppercase font-medium bg-yellow-400 hover:bg-yellow-500 transition-all duration-200 ease-linear">
             {title}
         </button>
     )

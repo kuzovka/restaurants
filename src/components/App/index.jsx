@@ -1,28 +1,25 @@
-
-import { useState } from 'react';
 import 'components/App/styles.css';
-import Button from 'components/Button';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Footer from 'components/Footer';
+import HomePage from '../HomePage';
+import AboutUsPage from 'components/AboutUsPage';
+import Navigation from 'components/Navigation';
+import RestaurantPage from 'components/RestaurantPage';
+import CartPage from 'components/CartPage';
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  const plus = () => {
-    setCount(count + 1)
-  }
-
-  function minus() {
-    setCount(count - 1)
-  }
-
   return (
-    <div>
-     <h1 className='text-3xl font-bold text-center my-8'>Счетчик</h1>
-     <p className='text-8xl font-bold text-center mb-8'>{count}</p>
-     <div className='flex justify-center'>
-     <Button title="Отнять - 1" changeCount={minus}/>
-     <Button title="Прибавить + 1" changeCount={plus}/>
-     </div>
-    </div>
+    <BrowserRouter>
+      <Navigation />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutUsPage />} />
+        <Route path="/restaurant/:slug" element={<RestaurantPage />} />
+        <Route path="/cart" element={<CartPage />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
 }
 
